@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=dive_to_type
+
+    # もしdocker/postgresをすでに使ってたら消されちゃう
+    volumes:
+      - ~/docker/postgres:/var/lib/postgresql/data
